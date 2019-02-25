@@ -1,0 +1,7 @@
+---
+- hosts: test-servers
+  sudo: yes
+  tasks:
+  - name: Check FS status
+    command: df -hP /var
+      
