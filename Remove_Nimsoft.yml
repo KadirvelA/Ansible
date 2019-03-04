@@ -1,0 +1,19 @@
+---
+- hosts: test-servers
+  become: yes
+  become_method: sudo
+  tasks:
+   - name: Uninstall the Agent
+     yum:
+      name:
+        - nimsoft-*
+      state: absent
+    - name: Remove Nimsoft Directories
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /opt/nimsoft
+        - /opt/nimsoft-robot.x86_64.rpm
+    
+        
