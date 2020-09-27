@@ -1,8 +1,4 @@
 ---
-  gather_facts: yes
-  gather_subset: min
-  become: yes
-  become_method: sudo
   tasks:
    - name: Install kernel version 2.6.32-754.23.1.el6.x86_64
      yum:
