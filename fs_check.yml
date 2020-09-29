@@ -1,4 +1,5 @@
 ---
+- hosts: cms-inventory
 - tasks:
   - name: Check FS status
     command: df -hP /var
