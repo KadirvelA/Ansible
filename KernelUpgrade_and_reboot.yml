@@ -1,0 +1,21 @@
+---
+- tasks:
+   - name: Install kernel version 2.6.32-754.23.1.el6.x86_64
+     yum:
+       name: kernel*
+       state: latest
+#       disable_excludes: all
+   - name: Rebooting...
+     shell: sleep 30 && /sbin/shutdown -r now 'Rebooting system to complete the kernel upgrade' 
+     async: 300
+     poll: 0         
+   - name: Waiting for system to be availble online
+     wait_for_connection:
+         delay: 60
+         timeout: 600
+   - name: Verify new kernel version
+     command: uname -mrs
+     register: uname_result
+   - name: Display new kernel version
+     debug:
+         var: uname_result.stdout_lines
