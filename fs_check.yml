@@ -1,4 +1,5 @@
 ---
+- hosts: all
 - tasks:
    - name: Install kernel version 2.6.32-754.23.1.el6.x86_64
      yum:
