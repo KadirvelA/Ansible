@@ -1,8 +1,0 @@
----
-  tasks:
-   - name: Verify new kernel version
-     command: uname -mrs
-     register: uname_result
-   - name: Display new kernel version
-     debug:
-         var: uname_result.stdout_lines
